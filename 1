@@ -1,0 +1,33 @@
+#include <stdio.h>
+#define N 5
+
+struct punkt{
+    float x, y;
+};
+
+int main()
+{
+    struct punkt t[N] = {{1, 3}, {2, 5}, {3.45, 12.654}, {-1.6, -18}, {-33, 88}};
+    
+    return 0;
+}
+
+void sortuj(struct punkt *t)
+{
+    for(int i = 0; i < N; i++)
+    {
+        int m = i;
+        int j = i + 1;
+        while(j <= N)
+        {
+            if(t[m].y > t[j].y)
+            {
+                m = j;
+            }
+            j++;
+        }
+        struct punkt x = t[m];
+        t[m] = t[j];
+        t[j] = x;
+    }
+}
